@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Dialog, IconButton, Typography, Button } from '@material-ui/core'
 import { HighlightOff } from '@material-ui/icons'
 import { PropTypes } from 'prop-types'
@@ -12,7 +13,7 @@ const ModalDialog = ({
 }) => {
   const { bookTitle, bookAuthor, bookImageUrl, description } = modalData
   const classes = useStyles()
-  return (
+  return ReactDOM.createPortal(
     <>
       <Dialog onClose={ handleClose } aria-labelledby='simple-dialog-title' open={ open }>
         <div className={ classes.rootPaper }>
@@ -66,7 +67,7 @@ const ModalDialog = ({
         </div>
       </Dialog>
     </>
-  )
+    , document.getElementById('modal'))
 }
 
 ModalDialog.defaultProps = {
