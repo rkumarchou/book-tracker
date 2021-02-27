@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
   bookCardRoot: {
     height: 'inherit',
     width: 'inherit',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     borderRadius: '25px'
   },
   bookTitleTypography: {

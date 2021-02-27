@@ -11,7 +11,7 @@ import useStyles from './style'
 import Loading from '../../components/Loaders'
 import ModalDialog from '../../components/Modal'
 import GridView from '../../wrapper-components/GridView'
-
+import ListView from '../../wrapper-components/ListView'
 import useAsync from '../../hooks/useAsync'
 import { FetchBookData } from '../../utils/services'
 
@@ -19,9 +19,9 @@ const Collection = ({ window }) => {
   const classes = useStyles()
   const theme = useTheme()
   const [ cellOpen, setCellOpen ] = useState(false)
-  const [ isGridView, setIsGridView ] = useState(true)
+  const [ isGridView, setIsGridView ] = useState(false)
   const [ modalData, setModalData ] = useState({})
-  const [ openModal, setOpenModal ] = useState(true)
+  const [ openModal, setOpenModal ] = useState(false)
   const handleOpen = (bookDetails) => {
     setOpenModal(true)
     setModalData(bookDetails)
@@ -82,7 +82,7 @@ const Collection = ({ window }) => {
                   ? (<GridView result={ result } handleOpen={ handleOpen }/>)
                   : (
                     <>
-                      ..............
+                      <ListView result={ result }/>
                     </>
                     )
               )

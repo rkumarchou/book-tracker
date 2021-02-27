@@ -14,11 +14,36 @@ export default makeStyles((theme) => ({
   bookCardRoot: {
     height: 'inherit',
     width: 'inherit',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     borderRadius: '25px',
-    objectFit: 'contain'
+    objectFit: 'contain',
+    position: 'relative'
   },
   commonTypography: {
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: '2%'
+  },
+  flexer: {
+    display: 'flex',
+    marginTop: '5%'
+  },
+  buttonContainer: {
+    marginTop: '5%',
+    display: 'flex',
+    padding: '10px'
+  },
+  continueReadingButton: {
+    backgroundColor: '#00008B',
+    color: 'white',
+    marginLeft: '5px',
+    borderRadius: '8px',
+    textTransform: 'none'
+  },
+  closeButton: {
+    right: 0,
+    position: 'absolute'
+  },
+  closeTextButton: {
+    textTransform: 'none'
   }
 }))

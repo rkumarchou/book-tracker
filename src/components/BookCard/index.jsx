@@ -2,6 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { PropTypes } from 'prop-types'
 
+import BookTitleAuthor from '../../components/BookTitleAuthor'
 import useStyles from './style'
 
 const displayChip = (containerClass, textClass, text) => (
@@ -29,8 +30,7 @@ const BookCard = (props) => {
         { displayChip(classes.readingProgress, classes.readingProgressTypography, readingProgress) }
         { displayChip(classes.bookGenreContainer, classes.bookGenreTypography, bookGenre) }
       </div>
-      <Typography variant='h6' noWrap className={ classes.bookTitleTypography }>{ bookTitle }</Typography>
-      <Typography color='textSecondary' noWrap>{ bookAuthor }</Typography>
+      <BookTitleAuthor title ={ bookTitle } author= { bookAuthor } />
     </div>
   )
 }
