@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import Table from '../../components/Table'
+import Table from '../../../../components/Table'
 
 const ListView = ({ result }) => {
   return (

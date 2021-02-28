@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import { PropTypes } from 'prop-types'
 
-import BookCard from '../../components/BookCard'
+import BookCard from '../../../../components/BookCard'
 import useStyles from './style'
 
 const GridView = ({ result, handleOpen }) => {
