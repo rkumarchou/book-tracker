@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import {
-  CssBaseline, Drawer, Hidden
+  CssBaseline, Drawer, Hidden, Divider
 } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
 
@@ -19,7 +19,7 @@ const Collection = ({ window }) => {
   const classes = useStyles()
   const theme = useTheme()
   const [ cellOpen, setCellOpen ] = useState(false)
-  const [ isGridView, setIsGridView ] = useState(false)
+  const [ isGridView, setIsGridView ] = useState(true)
   const [ modalData, setModalData ] = useState({})
   const [ openModal, setOpenModal ] = useState(false)
   const handleOpen = (bookDetails) => {
@@ -31,9 +31,7 @@ const Collection = ({ window }) => {
     setModalData({})
   }
   const { mutate, isLoading, result } = useAsync(FetchBookData)
-  useEffect(() => {
-    mutate()
-  }, [])
+  useEffect(() => mutate(), [])
 
   const handleDrawerToggle = () => setCellOpen(!cellOpen)
   const container = window !== undefined ? () => window().document.body : undefined
@@ -41,7 +39,7 @@ const Collection = ({ window }) => {
   return (
     <div className={ classes.root }>
       <CssBaseline />
-      <TopBar handleDrawerToggle={ handleDrawerToggle } setIsGridView={ setIsGridView } />
+      <TopBar handleDrawerToggle={ handleDrawerToggle } setIsGridView={ setIsGridView } isGridView={ isGridView }/>
       <nav className={ classes.drawer } aria-label='mailbox folders'>
         <Hidden smUp implementation='css'>
           <Drawer
@@ -70,6 +68,7 @@ const Collection = ({ window }) => {
           </Drawer>
         </Hidden>
       </nav>
+      <Divider />
       <main className={ classes.content }>
         <div className={ classes.toolbar } />
         {
@@ -80,11 +79,7 @@ const Collection = ({ window }) => {
             : (
                 isGridView
                   ? (<GridView result={ result } handleOpen={ handleOpen }/>)
-                  : (
-                    <>
-                      <ListView result={ result }/>
-                    </>
-                    )
+                  : (<ListView result={ result }/>)
               )
         }
         { openModal &&
@@ -96,7 +91,6 @@ const Collection = ({ window }) => {
             />
           )
         }
-
       </main>
     </div>
   )

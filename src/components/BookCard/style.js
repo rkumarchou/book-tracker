@@ -2,15 +2,20 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
   bookCardContainerWeb: {
-    height: '240px',
-    width: '150px',
-    marginBottom: '30%'
+    height: 'inherit',
+    width: 'inherit'
   },
   bookCardRoot: {
-    height: 'inherit',
-    width: 'inherit',
+    height: '350px',
+    width: '95%',
     backgroundSize: 'cover',
-    borderRadius: '25px'
+    borderRadius: '25px',
+    position: 'relative',
+    backgroundImage: ({ bookImageUrl }) => `url(${ bookImageUrl })`,
+    [ theme.breakpoints.between('xs', 'sm') ]: {
+      height: '270px',
+      width: '100%'
+    }
   },
   bookTitleTypography: {
     width: 'inherit',
@@ -22,9 +27,9 @@ export default makeStyles((theme) => ({
   },
   readingProgress: {
     backgroundColor: 'black',
-    borderRadius: '7px',
-    width: '25%',
-    height: '10%',
+    borderRadius: '10px',
+    width: '30%',
+    height: '11%',
     position: 'absolute',
     margin: '6%',
     opacity: '60%',
@@ -34,13 +39,14 @@ export default makeStyles((theme) => ({
     color: 'white',
     display: 'table-cell',
     verticalAlign: 'middle',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 800
   },
   bookGenreContainer: {
     backgroundColor: 'black',
-    borderRadius: '8px',
-    width: '50%',
-    maxWidth: '50%',
+    borderRadius: '11px',
+    width: '52%',
+    maxWidth: '55%',
     height: '12%',
     position: 'absolute',
     margin: '6%',
@@ -59,6 +65,10 @@ export default makeStyles((theme) => ({
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
-    maxWidth: '80px'
+    maxWidth: '85px',
+    fontWeight: 800
+  },
+  bookTitAuth: {
+    marginTop: '10px'
   }
 }))

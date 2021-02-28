@@ -18,6 +18,10 @@ export default makeStyles((theme) => ({
   },
   tableCellFont: {
     fontWeight: 400,
-    fontSize: '20px'
+    fontSize: '20px',
+    color: 'rgba(0, 0, 0, 0.54)'
+  },
+  imageTableCell: {
+    display: 'flex'
   }
 }))

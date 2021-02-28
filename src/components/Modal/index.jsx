@@ -5,6 +5,7 @@ import { HighlightOff } from '@material-ui/icons'
 import { PropTypes } from 'prop-types'
 
 import BookTitleAuthor from '../../components/BookTitleAuthor'
+import ImageCard from '../ImageCard'
 import useStyles from './style'
 
 const customButton = (classname, text, handleClose) => (
@@ -24,27 +25,27 @@ const ModalDialog = ({
   const classes = useStyles()
   return ReactDOM.createPortal(
     <>
-      <Dialog onClose={ handleClose } aria-labelledby='simple-dialog-title' open={ open }>
+      <Dialog
+        classes={ { paper: classes.paper } }
+        onClose={ handleClose }
+        aria-labelledby='simple-dialog-title'
+        open={ open }
+      >
         <div className={ classes.rootPaper }>
           <IconButton onClick={ () => handleClose() } className={ classes.closeButton }>
             <HighlightOff/>
           </IconButton>
           <div className={ classes.flexer }>
-            <div className={ classes.bookImageContainer }>
-              <div
-              className={ classes.bookCardRoot }
-              style={ { backgroundImage: `url(${ bookImageUrl })` } }
-            />
-            </div>
+            <ImageCard imageUrl={ bookImageUrl } classes={ classes } />
           </div>
           <div className={ classes.commonTypography }>
             <BookTitleAuthor title ={ bookTitle } author= { bookAuthor }/>
-            <Typography style={ { padding: '15px' } }>
+            <Typography className={ classes.descriptionTypography }>
               { description }
             </Typography>
           </div>
           <div className={ classes.buttonContainer }>
-            <div style={ { margin: 'auto' } }>
+            <div className={ classes.bottomButtonContainer }>
               { customButton(classes.closeTextButton, 'Close', handleClose) }
               { customButton(classes.continueReadingButton, 'Continue Reading', handleClose) }
             </div>

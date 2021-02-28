@@ -20,17 +20,16 @@ const BookCard = (props) => {
   const bookDetails = {
     readingProgress, bookGenre, bookTitle, bookAuthor, bookImageUrl, description
   }
-  const classes = useStyles()
+  const classes = useStyles({ bookImageUrl })
   return (
-    <div className={ classes.bookCardContainerWeb } onClick={ () => handleOpen(bookDetails) }>
-      <div
-        className={ classes.bookCardRoot }
-        style={ { backgroundImage: `url(${ bookImageUrl })`, position: 'relative', objectFit: 'contain' } }
-      >
+    <div className={ classes.bookCardContainerWeb }>
+      <div className={ classes.bookCardRoot } onClick={ () => handleOpen(bookDetails) }>
         { displayChip(classes.readingProgress, classes.readingProgressTypography, readingProgress) }
         { displayChip(classes.bookGenreContainer, classes.bookGenreTypography, bookGenre) }
       </div>
-      <BookTitleAuthor title ={ bookTitle } author= { bookAuthor } />
+      <div className={ classes.bookTitAuth }>
+        <BookTitleAuthor title ={ bookTitle } author= { bookAuthor } />
+      </div>
     </div>
   )
 }

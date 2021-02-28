@@ -23,12 +23,12 @@ const CustomTable = ({ data }) => {
           <TableBody>
             {data.map(({ bookAuthor, bookGenre, bookImageUrl, bookTitle, readingProgress, id }) => (
               <TableRow key={ `${ id }-tableRow` }>
-                <TableCell style={ { display: 'flex' } }>
+                <TableCell className={ classes.imageTableCell }>
                   <ImageCard
                       key={ `${ id }-tableImageCard` }
                       imageUrl={ bookImageUrl }
                       classes={ classes }
-                    />
+                  />
                   <div className={ classes.bookTitAuthContainer } >
                     <BookTitleAuthor
                         key={ `${ id }-tableBookAuthTitle` }

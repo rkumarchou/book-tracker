@@ -1,17 +1,20 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
+  paper: {
+    borderRadius: '30px'
+  },
   rootPaper: {
     height: 'fit-content',
     width: 'fit-content',
     borderRadius: '25%'
   },
-  bookImageContainer: {
+  imageContainer: {
     height: '240px',
     width: '150px',
     margin: 'auto'
   },
-  bookCardRoot: {
+  imageCardRoot: {
     height: 'inherit',
     width: 'inherit',
     backgroundSize: 'cover',
@@ -33,17 +36,28 @@ export default makeStyles((theme) => ({
     padding: '10px'
   },
   continueReadingButton: {
-    backgroundColor: '#00008B',
+    backgroundColor: '#0000ff',
     color: 'white',
     marginLeft: '5px',
     borderRadius: '8px',
-    textTransform: 'none'
+    textTransform: 'none',
+    fontWeight: 600,
+    '&:hover': {
+      color: 'black'
+    }
   },
   closeButton: {
-    right: 0,
+    right: 5,
+    top: 5,
     position: 'absolute'
   },
   closeTextButton: {
     textTransform: 'none'
+  },
+  descriptionTypography: {
+    padding: '15px'
+  },
+  bottomButtonContainer: {
+    margin: 'auto'
   }
 }))

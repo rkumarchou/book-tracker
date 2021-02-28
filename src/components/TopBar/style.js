@@ -1,12 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-const drawerWidth = 260
+const drawerWidth = 325
 
 export default makeStyles((theme) => ({
   appBar: {
     [ theme.breakpoints.up('sm') ]: {
       width: `calc(100% - ${ drawerWidth }px)`,
-      marginLeft: drawerWidth
+      marginLeft: drawerWidth,
+      backgroundColor: 'white'
     }
   },
   menuButton: {
@@ -17,5 +18,25 @@ export default makeStyles((theme) => ({
   },
   toolbarButtons: {
     marginLeft: 'auto'
+  },
+  topbarHeading: {
+    color: 'black',
+    fontSize: 30,
+    [ theme.breakpoints.between('xs', 'sm') ]: {
+      fontSize: '20px'
+    }
+  },
+  menuIcon: {
+    color: 'black'
+  },
+  divider: {
+    width: '98%',
+    margin: 'auto'
+  },
+  iconSelected: {
+    background: '#F0F0F0'
+  },
+  iconNotSelected: {
+    background: 'unset'
   }
 }))
